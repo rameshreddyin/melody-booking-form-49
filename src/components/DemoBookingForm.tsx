@@ -97,24 +97,24 @@ const DemoBookingForm: React.FC<DemoBookingFormProps> = ({ onSuccess }) => {
   };
 
   return (
-    <Card className="w-full max-w-2xl mx-auto shadow-soft bg-gradient-to-br from-background to-muted/20 border-2 border-primary/20 relative overflow-hidden">
+    <Card className="w-full max-w-4xl mx-auto shadow-soft bg-gradient-to-br from-background to-muted/20 border-2 border-primary/20 relative overflow-hidden">
       {/* Progress bar */}
       <div className="absolute top-0 left-0 h-1 bg-gradient-primary transition-all duration-700 ease-out" 
            style={{ width: `${completionPercentage}%` }} />
       
-      <CardHeader className="text-center pb-6">
-        <div className="mx-auto w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center mb-4 transition-transform duration-300 hover:scale-110">
-          <Music className="w-8 h-8 text-white" />
+      <CardHeader className="text-center pb-4 md:pb-6 px-4 md:px-6">
+        <div className="mx-auto w-12 md:w-16 h-12 md:h-16 bg-gradient-primary rounded-full flex items-center justify-center mb-3 md:mb-4 transition-transform duration-300 hover:scale-110">
+          <Music className="w-6 md:w-8 h-6 md:h-8 text-white" />
         </div>
-        <CardTitle className="text-3xl font-bold bg-gradient-primary bg-clip-text text-transparent">
+        <CardTitle className="text-2xl md:text-3xl font-bold bg-gradient-primary bg-clip-text text-transparent">
           Book Your Free Demo
         </CardTitle>
-        <CardDescription className="text-lg text-muted-foreground">
+        <CardDescription className="text-base md:text-lg text-muted-foreground px-2">
           Start your musical journey with us! Fill out the form below and we'll schedule your personalized demo session.
         </CardDescription>
         
         {/* Progress indicator */}
-        <div className="mt-4 flex items-center justify-center gap-2 text-sm text-muted-foreground">
+        <div className="mt-3 md:mt-4 flex items-center justify-center gap-2 text-xs md:text-sm text-muted-foreground">
           <div className="flex items-center gap-1">
             <div className="w-2 h-2 rounded-full bg-gradient-primary" />
             <span>Progress: {Math.round(completionPercentage)}% complete</span>
@@ -122,10 +122,10 @@ const DemoBookingForm: React.FC<DemoBookingFormProps> = ({ onSuccess }) => {
         </div>
       </CardHeader>
 
-      <CardContent>
+      <CardContent className="px-4 md:px-6 pb-4 md:pb-6">
         <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4 md:space-y-6">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-3 md:gap-4">
               <FormField
                 control={form.control}
                 name="fullName"
@@ -142,7 +142,7 @@ const DemoBookingForm: React.FC<DemoBookingFormProps> = ({ onSuccess }) => {
                         onFocus={() => setFocusedField('fullName')}
                         onBlur={() => setFocusedField(null)}
                         className={cn(
-                          "h-12 border-2 transition-all duration-300 transform",
+                          "h-11 md:h-12 border-2 transition-all duration-300 transform text-base",
                           getFieldStatus('fullName', fieldState) === 'focused' && "border-primary ring-2 ring-primary/20 scale-[1.02]",
                           getFieldStatus('fullName', fieldState) === 'error' && "border-destructive ring-2 ring-destructive/20",
                           getFieldStatus('fullName', fieldState) === 'completed' && "border-green-500 bg-green-50/50",
@@ -172,7 +172,7 @@ const DemoBookingForm: React.FC<DemoBookingFormProps> = ({ onSuccess }) => {
                         onFocus={() => setFocusedField('email')}
                         onBlur={() => setFocusedField(null)}
                         className={cn(
-                          "h-12 border-2 transition-all duration-300 transform",
+                          "h-11 md:h-12 border-2 transition-all duration-300 transform text-base",
                           getFieldStatus('email', fieldState) === 'focused' && "border-primary ring-2 ring-primary/20 scale-[1.02]",
                           getFieldStatus('email', fieldState) === 'error' && "border-destructive ring-2 ring-destructive/20",
                           getFieldStatus('email', fieldState) === 'completed' && "border-green-500 bg-green-50/50",
@@ -186,7 +186,7 @@ const DemoBookingForm: React.FC<DemoBookingFormProps> = ({ onSuccess }) => {
               />
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-3 md:gap-4">
               <FormField
                 control={form.control}
                 name="phone"
@@ -204,7 +204,7 @@ const DemoBookingForm: React.FC<DemoBookingFormProps> = ({ onSuccess }) => {
                         onFocus={() => setFocusedField('phone')}
                         onBlur={() => setFocusedField(null)}
                         className={cn(
-                          "h-12 border-2 transition-all duration-300 transform",
+                          "h-11 md:h-12 border-2 transition-all duration-300 transform text-base",
                           getFieldStatus('phone', fieldState) === 'focused' && "border-primary ring-2 ring-primary/20 scale-[1.02]",
                           getFieldStatus('phone', fieldState) === 'error' && "border-destructive ring-2 ring-destructive/20",
                           getFieldStatus('phone', fieldState) === 'completed' && "border-green-500 bg-green-50/50",
@@ -232,7 +232,7 @@ const DemoBookingForm: React.FC<DemoBookingFormProps> = ({ onSuccess }) => {
                           onFocus={() => setFocusedField('age')}
                           onBlur={() => setFocusedField(null)}
                           className={cn(
-                            "h-12 border-2 transition-all duration-300 transform",
+                            "h-11 md:h-12 border-2 transition-all duration-300 transform text-base",
                             getFieldStatus('age', fieldState) === 'focused' && "border-primary ring-2 ring-primary/20 scale-[1.02]",
                             getFieldStatus('age', fieldState) === 'error' && "border-destructive ring-2 ring-destructive/20",
                             getFieldStatus('age', fieldState) === 'completed' && "border-green-500 bg-green-50/50",
@@ -257,7 +257,7 @@ const DemoBookingForm: React.FC<DemoBookingFormProps> = ({ onSuccess }) => {
               />
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-3 md:gap-4">
               <FormField
                 control={form.control}
                 name="musicInterest"
@@ -409,25 +409,25 @@ const DemoBookingForm: React.FC<DemoBookingFormProps> = ({ onSuccess }) => {
               type="submit" 
               variant="hero"
               className={cn(
-                "w-full h-14 text-lg transition-all duration-300 transform hover:scale-[1.02] active:scale-[0.98]",
+                "w-full h-12 md:h-14 text-base md:text-lg transition-all duration-300 transform hover:scale-[1.02] active:scale-[0.98]",
                 completionPercentage === 100 && "shadow-primary animate-pulse"
               )}
               disabled={isSubmitting || completionPercentage < 100}
             >
               {isSubmitting ? (
                 <div className="flex items-center gap-2">
-                  <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
-                  Booking Your Demo...
+                  <div className="w-4 md:w-5 h-4 md:h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                  <span className="text-sm md:text-base">Booking Your Demo...</span>
                 </div>
               ) : completionPercentage < 100 ? (
                 <div className="flex items-center gap-2">
-                  <AlertCircle className="w-5 h-5" />
-                  Complete all fields to continue ({Math.round(completionPercentage)}%)
+                  <AlertCircle className="w-4 md:w-5 h-4 md:h-5" />
+                  <span className="text-sm md:text-base">Complete all fields ({Math.round(completionPercentage)}%)</span>
                 </div>
               ) : (
                 <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-5 h-5" />
-                  Book My Free Demo Session
+                  <CheckCircle2 className="w-4 md:w-5 h-4 md:h-5" />
+                  <span className="text-sm md:text-base">Book My Free Demo Session</span>
                 </div>
               )}
             </Button>
